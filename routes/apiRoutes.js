@@ -1,4 +1,3 @@
-var User = require("../models/index");
 var Litty = require("../models/index");
 
 module.exports = function(app) {
