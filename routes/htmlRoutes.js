@@ -7,7 +7,6 @@ module.exports = function(app, passport, db) {
       res.render("index", {
         msg: "Welcome!",
         litty: dbLittys
-        // name: req.user[0].dataValues.name
       });
     });
   });
@@ -63,7 +62,7 @@ module.exports = function(app, passport, db) {
   // Login
   app.post('/users/login',
     passport.authenticate('local', {
-      successRedirect: '/dashboard',
+      successRedirect: '/chat',
       failureRedirect: '/users/login',
       failureFlash: 'Invalid email or password.'
     })
@@ -77,10 +76,10 @@ module.exports = function(app, passport, db) {
   });
 
   // Dashboard
-  app.get('/dashboard', ensureAuthenticated, function(req, res) {
+  app.get('/chat', ensureAuthenticated, function(req, res) {
   // That took a minute to figure out  
   // console.log(req.user[0].dataValues.email);
-  res.render('dashboard', { name: req.user[0].dataValues.name })
+  res.render('chatroom', { name: req.user[0].dataValues.name })
   });
 
 
