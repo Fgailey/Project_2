@@ -6,8 +6,8 @@ module.exports = function(app, passport, db) {
     db.Litty.findAll({}).then(function(dbLittys) {
       res.render("index", {
         msg: "Welcome!",
-        litty: dbLittys,
-        name: req.user[0].dataValues.email
+        litty: dbLittys
+        // name: req.user[0].dataValues.name
       });
     });
   });
