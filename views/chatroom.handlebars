@@ -1,29 +1,61 @@
 <div id="home">
+  <div class="row">
+    {{!-- maybe add a parallax effect here? --}}
+    <div class="col s8 center-block">
+      {{!-- <h1 class="center">{{msg}}</h1> --}}
+    </div>
+  </div>
+</div>
 
-  <div class="container mt-4">
-    <div class="row">
-      <div class="col-8 offset-2">
-        <h1>Welcome {{name}}</h1>
-        <h2>This is our Chat room. FAM.</h2>
-        <div id="mario-chat">
-            <h2>Litty Chat</h2>
-            <div id="chat-window">
-                <div id="output"></div>
-                <div id="feedback"></div>
-            </div>
-            <input id="handle" type="text" placeholder="Handle" />
-            <input id="message" type="text" placeholder="Message" />
-            <button id="sendIt">Send</button>
+<br>
+
+<div class="row valign-wrapper">
+  <div class="col s12 valign">
+    <div class="card blue-grey darken-1" id="big-window">
+      <div class="card-content white-text">
+        {{!-- make chat window scrollable and contained within card-content (currently overflows into card-action) --}}
+          <input id="handle" type="text" placeholder="Handle" />
+        <div class="orange" id="chat-window">
+          {{!-- NTA color coding for output/feedback; round corners --}}
+          <div class="blue" id="output">
+              {{#each litty}}
+              {{!-- {{this.createdAt}} --}}
+              <p><strong>{{this.name}} :</strong> {{this.message}} </p>
+              {{/each}}</div>
+          <div class="green" id="feedback"></div>
         </div>
-        <h3>Examples:</h3>
-        <ul id="example-list" class="list-group">
-          {{#each litty}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="litty/{{this.id}}">{{this.name}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
-          </li>
-          {{/each}}
-        </ul>
+        <div class="card-action">
+          <input id="message" type="text" placeholder="Message" />
+          <button class="waves-effect waves-light btn" id="sendIt">SEND IT</button>
+          <button class="waves-effect waves-light btn" id="sendIt2">GIFs</button>
+          <button class="waves-effect waves-light btn" id="sendIt3">EMOJIs</button>
+        </div>
+        {{!-- Gify shit --}}
+
+        <div class="col-12">
+          <form id="topic-form">
+            <label id="topic-text" for="topic-input">&darr;SEARCH GIFS&darr;</label>
+            <input type="text" id="search-bar">
+            <br>
+
+            {{!-- <input id="search" type="submit" value="SEARCH!"> --}}
+            <button id="search"> Search! </button>
+          </form>
+        </div>
+        <br>
+
+        <div class="row">
+          <div class="col-12">
+            <div id="topics-view"></div>
+          </div>
+        </div>
+
+        {{!-- //emojis --}}
+        <div class="row">
+          <div class="col-12">
+            <div id="emojiSpot"> </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
