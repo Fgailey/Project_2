@@ -1,0 +1,30 @@
+<div id="home">
+
+  <div class="container mt-4">
+    <div class="row">
+      <div class="col-8 offset-2">
+        <h1>Welcome {{name}}</h1>
+        <h2>This is our Chat room. FAM.</h2>
+        <div id="mario-chat">
+            <h2>Litty Chat</h2>
+            <div id="chat-window">
+                <div id="output"></div>
+                <div id="feedback"></div>
+            </div>
+            <input id="handle" type="text" placeholder="Handle" />
+            <input id="message" type="text" placeholder="Message" />
+            <button id="sendIt">Send</button>
+        </div>
+        <h3>Examples:</h3>
+        <ul id="example-list" class="list-group">
+          {{#each litty}}
+          <li data-id="{{this.id}}" class="list-group-item">
+            <a href="litty/{{this.id}}">{{this.name}}</a>
+            <button class="btn btn-danger float-right delete">ｘ</button>
+          </li>
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
