@@ -1,3 +1,4 @@
+var { ensureAuthenticated } = require('../config/auth');
 
 module.exports = function(app, passport, db) {
   // Load index page
@@ -5,7 +6,8 @@ module.exports = function(app, passport, db) {
     db.Litty.findAll({}).then(function(dbLittys) {
       res.render("index", {
         msg: "Welcome!",
-        litty: dbLittys
+        litty: dbLittys,
+        name: req.user[0].dataValues.email
       });
     });
   });
@@ -58,13 +60,29 @@ module.exports = function(app, passport, db) {
 
   });
 
+  // Login
   app.post('/users/login',
     passport.authenticate('local', {
-      successRedirect: '/',
+      successRedirect: '/dashboard',
       failureRedirect: '/users/login',
       failureFlash: 'Invalid email or password.'
     })
   );
+
+  // Logout
+  app.get('/logout', function(req, res){
+    req.logout();
+    // create message or logout page
+    res.redirect('/users/login');
+  });
+
+  // Dashboard
+  app.get('/dashboard', ensureAuthenticated, function(req, res) {
+  // That took a minute to figure out  
+  // console.log(req.user[0].dataValues.email);
+  res.render('dashboard', { name: req.user[0].dataValues.name })
+  });
+
 
   // Load Litty page and pass in an Litty by id
   app.get("/litty/:id", function(req, res) {
