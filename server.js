@@ -82,8 +82,6 @@ db.sequelize.sync(syncOptions).then(function() {
       console.log('chat data: ' + data.message)
     });
 
-    
-
     socket.on('typing', function(data){
       socket.broadcast.emit('typing', data)
       console.log('working')

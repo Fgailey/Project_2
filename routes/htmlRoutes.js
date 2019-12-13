@@ -22,7 +22,7 @@ module.exports = function(app, passport, db) {
     }).then(function(dbLittys) {
     // That took a minute to figure out  
     // console.log(req.user[0].dataValues.email);
-    res.render('chatroom', { name: req.user[0].dataValues.name, litty: dbLittys })
+    res.render('chatroom', { name: req.user[0].dataValues.name, litty: dbLittys, uniqueId: req.user[0].dataValues.email })
     });
   })
   app.get("/", function(req, res) {

@@ -10,7 +10,11 @@
           {{!-- NTA color coding for output/feedback; round these corners!! --}}
             {{#each litty}}
             {{!-- {{this.createdAt}} --}}
-            <p><strong>{{this.name}} :</strong> {{this.message}} </p>
+            <p>
+              <strong>{{this.name}} :</strong> {{{this.message}}} 
+              {{!-- {{#if user.email == uniqueId}} --}}
+              
+            </p>
             {{/each}}
           <div class="output-div" id="output"></div></div>
           <div class="feedback-div center" id="feedback"></div>
