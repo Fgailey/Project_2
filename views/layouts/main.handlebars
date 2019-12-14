@@ -15,11 +15,14 @@
   <title>Home Page</title>
 </head>
 
+
+
 <body>
 
+<div class="navbar-fixed">
   <nav>
     <div class="nav-wrapper">
-      <a href="#" class="brand-logo">LITTY FAM</a>
+      <a href="#" style="padding-left: 1rem;" class="brand-logo">LITTY FAM</a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="/"><i class="material-icons left">home</i>Home<span class="sr-only">(current)</span></a></li>
@@ -27,6 +30,8 @@
         <li><a href="/logout"><i class="material-icons left">account_box</i>Logout</a></li>
         <li><a href="/users/register"><i class="material-icons left">person_add</i>Register</a></li>
       </ul>
+  </nav>
+</div>
 
       <ul class="sidenav" id="mobile-demo">
         <li><a href="/"><i class="material-icons left">home</i>Home</a></li>
@@ -35,10 +40,10 @@
         <li><a href="/users/register"><i class="material-icons left">person_add</i>Register</a></li>
       </ul>
     </div>
-  </nav>
 
   <div class="container">
     {{{body}}}
+
   </div>
 
   <script>
@@ -69,6 +74,7 @@
   <script src="./js/chat.js"></script>
   <script src="./js/giphy.js"> </script>
   <script src="./js/emoji.js"> </script>
+  <script src="./js/css.js"> </script>
   {{!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
   </script>--}}
@@ -76,6 +82,7 @@
   {{!-- <script src="handlebars/dist/handlebars.min.js"></script>
 <script src="handlebars-intl/dist/handlebars-intl.min.js"></script> --}}
 
+    
 </body>
 
 </html>

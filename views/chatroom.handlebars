@@ -1,82 +1,109 @@
-<div class="row valign-wrapper">
-  <div class="col s12 valign" id="dsplPos">
-    <div class="card hoverable" id="big-window">
-      <div class="card-content white-text">
+<html>
 
-        {{!-- instead of handle form, pull user name --}}
-        <div title="Log in to change usernames">User Name:
-          <span id="handle" type="text" placeholder="Handle">{{name}}</span>
-        </div>
+<body>
+  <main>
+    <div class="row valign-wrapper">
+      <div class="col s12 valign" id="dsplPos">
+        <div class="card hoverable" id="big-window">
+          <div class="card-content white-text" id="chatroom-card">
 
-        <div id="chat-window">
-          {{!-- NTA color coding for output/feedback; round these corners!! --}}
-          <div class="feedback-div green center" id="feedback"></div>
-          <div class="output-div blue" id="output"></div>
-          {{#each litty}}
-          {{!-- {{this.createdAt}} --}}
-          <p>
-            <strong>{{this.name}} :</strong> {{{this.message}}}
-            {{!-- {{#if user.email == uniqueId}} --}}
+            {{!-- instead of handle form, pull user name --}}
+              
+            
+            <div title="Log in to change usernames" class="col s4">User Name:
+              <span id="handle" type="text" placeholder="Handle">{{name}}</span>
+            </div>
+            
+            <div id="color-buttons">
+              <i class="material-icons color-buttons grey-text text-darken-3" data-color="dark" title="Dark Mode">lens</i>
+              <i class="material-icons color-buttons orange-text text-accent-4" data-color="orange" title="Orange Fever">lens</i>
+              <i class="material-icons color-buttons cyan-text text-lighten-5" data-color="light" title="Light Mode">lens</i>
+              <i class="material-icons color-buttons deep-purple-text text-lighten-1" data-color="purple" title="Purple Durple">lens</i>
+              <i class="material-icons color-buttons red-text text-darken-4" data-color="red" title="Cool Red">lens</i>
+              <i class="material-icons color-buttons yellow-text text-darken-1" data-color="yellow" title="Yellow Eye Scorcher">lens</i>
+              <i class="material-icons color-buttons green-text text-darken-1" data-color="green" title="Leaf Green">lens</i>
+            </div>
+            
+            <div id="chat-window">
+              {{!-- NTA color coding for output/feedback; round these corners!! --}}
+              {{#each litty}}
+              {{!-- {{this.createdAt}} --}}
+              <p class="old-message">
+                <strong>{{this.name}} :</strong> {{{this.message}}}
+                {{!-- {{#if user.email == uniqueId}} --}}
 
-          </p>
-          {{/each}}
-        </div>
-        <div class="card-action">
-          <input id="message" type="text" placeholder="Message" />
-          <button class="waves-effect waves-light btn" id="sendIt">SEND IT</button>
-        </div>
-        <ul class="collapsible">
-          <li>
-            <div class="collapsible-header green hoverable"><i class="material-icons">emoji_emotions</i>Emojis</div>
-            <div class="collapsible-body emoji-body">
-              {{!-- scrollable emoji menu goes here --}}
-              <div class="row">
-                <div class="col">
-                  <p class="center">Click an emoji to add it to message field!</p>
+              </p>
+              {{/each}}
+              <div class="output-div" id="output"></div>
+              <div class="feedback-div green center" id="feedback"></div>
+            </div>
+
+            <ul class="collapsible">
+              <li>
+                <div class="collapsible-header deep-purple lighten-2 waves-effect waves-light hoverable"><i
+                    class="material-icons">emoji_emotions</i>Emojis</div>
+                <div class="collapsible-body lighten-1 emoji-body">
+                  {{!-- scrollable emoji menu goes here --}}
+                  <div class="col">
+                    <div class="row">
+                      <p class="center">Click an emoji to add it to message field!</p>
+                      <br>
+                      <div class="emoji-scroll center" id="emojiSpot"></div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              <li>
+                <div class="collapsible-header indigo darken-2 waves-effect waves-light hoverable"><i
+                    class="material-icons">gif</i>Giphy</div>
+                <div class="collapsible-body lighten-1">
+                  {{!-- giphy search bar and results --}}
+                  <form id="topic-form">
+                    <p for="topic-input">&darr;SEARCH GIFS&darr;</p>
+                    <input type="text" id="search-bar">
+                    <button class="col s10 offset-s1 amber darken-1 waves-effect waves-light btn"
+                      id="search">SEARCH!</button>
+                  </form>
                   <br>
-                  <div class="emoji-scroll center" id="emojiSpot"></div>
+                  <br>
+                  <div class="row">
+                    <div class="row">
+                      <div class="giphy-scroll" id="topics-view"></div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="collapsible-header red hoverable"><i class="material-icons">gif</i>Giphy</div>
-            <div class="collapsible-body">
-              {{!-- giphy search bar and results --}}
-              <form id="topic-form">
-                <p for="topic-input">&darr;SEARCH GIFS&darr;</p>
-                <input type="text" id="search-bar">
-                <button class="waves-effect waves-light btn" id="search">SEARCH!</button>
-              </form>
-              <div class="row">
-                <div class="col">
-                  <div class="giphy-scroll" id="topics-view"></div>
-                </div>
-              </div>
-            </div>
-          </li>
-        </ul>
+              </li>
+
+            </ul>
+
+
+
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
+
+    {{!-- <br>
+    <br>
+    <br>
+    <br> --}}
+  </main>
+
+  <footer class="page-footer">
+
+    <div class="container">
 
 
+      <div class="row" id="message-input-div">
+        <input id="message" type="text" placeholder="Message" />
+        <button class="col s10 offset-s1 amber darken-1 waves-effect waves-light btn" id="sendIt">SEND IT</button>
+      </div>
+    </div>
+
+  </footer>
 
 
-{{!-- Gify shit --}}
+</body>
 
-{{!-- <div class="col-12">
-          <form id="topic-form">
-            <label id="topic-text" for="topic-input">&darr;SEARCH GIFS&darr;</label>
-            <input type="text" id="search-bar">
-            <br>
-            {{!-- <input id="search" type="submit" value="SEARCH!"> --}}
-<button id="search"> Search! </button>
-</form>
-</div>
-<br>
-<div class="row">
-  <div class="col-12">
-    <div id="topics-view"></div>
-  </div>
+</html>

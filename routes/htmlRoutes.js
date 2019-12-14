@@ -14,11 +14,10 @@ module.exports = function(app, passport, db) {
            [Op.gt]: new Date(new Date()- 24 * 60 * 60 * 1000)
          }
         },
-         
-      order: [
-        ['id', 'DESC']
-      ],
-      
+      // order: [
+      //   ['id', 'DESC']
+      // ],
+
       limit: 100
     }).then(function(dbLittys) {
     // That took a minute to figure out  

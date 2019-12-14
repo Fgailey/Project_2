@@ -83,6 +83,7 @@ let handleFormSubmit = function(event) {
     name: $littyName.html().trim(),
     message: $littyMessage.val().trim()
   };
+  console.log('this is litty' + litty)
 
   if (!(litty.name && litty.message)) {
     alert("You must enter an example text and description!");
@@ -90,7 +91,7 @@ let handleFormSubmit = function(event) {
   }
 
   API.saveExample(litty).then(function() {
-    // refreshExamples();
+    console.log('submitted')
   });
 
   // $exampleText.val("");
@@ -108,7 +109,8 @@ let handleDeleteBtnClick = function() {
     refreshExamples();
   });
 };
-
-// Add event listeners to the submit and delete buttons
-$submitBtn.on("click", handleFormSubmit);
-$exampleList.on("click", ".delete", handleDeleteBtnClick);
+// $(document).on('ready', function(){ 
+  // Add event listeners to the submit and delete buttons
+  $submitBtn.on("click", handleFormSubmit);
+  $exampleList.on("click", ".delete", handleDeleteBtnClick);
+// })

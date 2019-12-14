@@ -1,13 +1,13 @@
 // Make connection
-// let socket = io.connect('https://intense-tor-53215.herokuapp.com/');
-let socket = io.connect('http://localhost:3000/');
-
+let socket = io.connect('https://intense-tor-53215.herokuapp.com/');
+// let socket = io.connect('http://localhost:3000/');
+// $(document).ready(function(){
 let alert = ()=>{
     $("#chat-window").animate({ scrollTop: $("#chat-window")[0].scrollHeight}, 1000)
     console.log('chat connected')
     return false;
 }
-// alert();
+$(document).ready(alert)
 
 let message = $('#message')
 let handle = $('#handle');
@@ -44,29 +44,33 @@ function image (from, base64Image) {
         `<img src="${base64Image}"/>`));
 }
 
-message.on('keypress', function(){
-    socket.emit('typing', handle.html());
-    console.log('searching') 
-})
-// $(document).click(typing)
-// let typing = () =>{
-//     if (!message.val()){
-//         socket.emit('typing', handle.html());
-//     }
-// }
+message.on('keypress', (e)=>{
+    let code = (e.keyCode || e.which);
 
-// Listen for events
+    // do nothing if it's an arrow key
+    if(code == 13 || code == 08) {
+        return;
+    }
+    // if (!e.which == 13){
+        socket.emit('typing', handle.html());
+        console.log('searching') 
+        // }
+    })
+
+
+    // Listen for events
 socket.on('chat', function(data){
+    output.html(output.html() + '<p class="p-message"><strong>' + data.handle + ': </strong>' + data.message + '</p>');
     feedback.html('');
-    output.html('<p><strong>' + data.handle + ': </strong>' + data.message + '</p>' + output.html());
     console.log('chat function works')
     // $('#chat-window, #feedback').animate({scrollTop: $('#feedback').height()}, "slow");
-    // $("#chat-window").stop().animate({ scrollTop: $("#chat-window")[0].scrollHeight}, 1000)
+    $("#chat-window").stop().animate({ scrollTop: $("#chat-window")[0].scrollHeight}, 1000)
 });
 
 socket.on('typing', function(data){
-       feedback.html('<p><em>' + data + ' is typing a message...</em></p>');
-        console.log('typing function works' + data)
+    feedback.html('<p><em>' + data + ' is typing a message...</em></p>');
+    console.log('typing function works' + data)
+    $("#chat-window").stop().animate({ scrollTop: $("#chat-window")[0].scrollHeight}, 1000)
     
 });
 
@@ -76,10 +80,4 @@ function image (from, base64Image) {
         '<img src="' + base64Image + '"/>'));
 }
 
-// socket.on("image", function(info) {
-//     if (info.image) {
-//       var img = new Image();
-//       img.src = 'data:image/jpeg;base64,' + image.buffer;
-//       ctx.drawImage(img, 0, 0);
-//     }
-//   });
+// })

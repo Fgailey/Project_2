@@ -1,51 +1,104 @@
+
+
 /* .list-group-item {
   line-height: 2.5;
 } */
 
-body{
+body {
   /* font-family: 'Nunito'; */
-  background-color: #d84315;
-  
+  background-color: #767473;
+  overflow-y: visible;
+  /* display: flex!important;
+  min-height: 100vh!important;
+  flex-direction: column!important; */
 }
 
-/* h2{
-  font-size: 18px;
-  padding: 10px 20px;
-  color: #575ed8;
-} */
+.sent-gif {
+  display: block;
+  margin: auto;
+  width: 50%;
+  padding-bottom: 23px;
+}
 
 .nav-wrapper {
-  background-color: #ff5722;
+  background-color: #252525;
 }
 
 .card {
   border-radius: 10px;
 }
 
-/* #mario-chat{
-  max-width: 100%;
-  margin: 30px auto;
-  border: 1px solid #ddd;
-  box-shadow: 1px 3px 5px rgba(0,0,0,0.05);
-  border-radius: 2px;
-} */
+#chatroom-card{
+  padding-top: 0;
+}
 
-#chat-window{
-  /* height: 100%; */
-  /* overflow: auto; */
-  border-radius: 10px;
-  background: #ffab00;
-  color: #0d47a1;
+#color-buttons {
+  margin-left:auto;
+  max-width: 200px;
+}
+.color-buttons:hover {
+  cursor: pointer;
+}
+
+#chat-window {
+  border-radius: 5px;
+  padding: 5px;
+  background: #585757;
+  color: #cacaca;
   overflow-y: scroll;
-  height: 500px;
-  padding: 1rem
+  height: 55vh;
+  width: 100%;
 }
 
 .p-message {
-  margin-bottom: 5px;
-  padding-left: 5px;
+  margin-bottom: 5px !important;
   border-radius: 10px;
-  background-color: #64b5f6;
+}
+
+.output-div, .feedback-div {
+  border-radius: 10px;
+}
+
+#message-input-div {
+  /* padding: 0px 24px; */
+  margin: auto ;
+}
+
+#welcome-title {
+  margin-top: 20px;
+}
+
+#dsplPos {
+  margin-top: 1%;
+}
+
+#big-window {
+  overflow: auto;
+  background-color: #424242;
+}
+
+.emojiButton {
+  cursor: pointer;
+
+}
+
+.emojiButton:hover {
+  font-size: xx-large;
+}
+
+img.active {
+  border: 4px solid black;
+}
+
+#sendIt {
+  float: right;
+  width: 15%;
+  margin: 10px 0px 0px;
+  
+}
+
+.btn.waves-effect.waves-light {
+  border-radius: 10px;
 }
 
 .emojiButton:hover {
@@ -54,14 +107,76 @@ body{
 
 .output-div {
   border-radius: 10px;
-  padding-left: 5px;
+} 
+
+.emoji-body {
+  padding: 29px 0px 0px 0px;
 }
 
-.feedback-div {
+.emoji-scroll {
+  overflow-y: scroll;
+  height: 150px;
+  padding: 1rem;
+}
+
+.giphy-scroll {
+  overflow-y: scroll;
+  max-height: 150px;
+  width: 100%;
+}
+
+#chat-window::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.6);
+  background-color: transparent;
+  box-shadow: none;
+}
+
+#chat-window::-webkit-scrollbar {
+  width: 10px;
+  /* background-color: #F5F5F5; */
+}
+
+
+#chat-window::-webkit-scrollbar-thumb {
   border-radius: 10px;
+  /* background-color: #FFF; */
+  background-image: -webkit-linear-gradient(90deg,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 1) 25%,
+      transparent 100%,
+      rgba(0, 0, 0, 1) 75%,
+      transparent)
 }
 
-/* #output p{
+main {
+  flex: 1 0 auto!important;
+}
+.page-footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  padding: 0;
+  background-color: #37474f;
+}
+
+#search{
+  position: static;
+}
+#search-bar, #message{
+  color: ivory;
+ }
+
+ #message{
+  width: 80%;
+ }
+
+ .old-message img{
+  max-width: 100%;
+ }
+
+
+ /* #output p{
   padding: 14px 0px;
   margin: 0 20px;
   color: #555;
@@ -75,9 +190,9 @@ body{
   border-radius: 10px;
 } */
 
-#output strong{
+/* #output strong {
   color: #575ed8;
-}
+} */
 
 /* label{
   box-sizing: border-box;
@@ -98,27 +213,20 @@ body{
   font-size: 16px;
 } */
 
-#dsplPos {
-  margin-top: 10%;
-}
+/* body {
+  display: flex!important;
+  min-height: 100vh!important;
+  flex-direction: column!important;
+} */
 
-#big-window{
-  overflow: auto;
-  background-color: #bf360c;
-}
-
-.emojiButton{
+/* .emojiButton{
   cursor: pointer;
   
-}
+} */
 
-.emojiButton:hover {
-  font-size: xx-large; 
-}
-
-img.active{
+/* img.active{
   border:4px solid black;
-}
+} */
 
 /* button{
   background: #575ed8;
@@ -132,37 +240,4 @@ img.active{
 
 /* #search-bar{
   border:solid #555; 
-} */
-
-.collapsible,
-.collapsible-header,
-.collapsible-body {
-  border: none !important;
-  border-radius: 10px !important;
-}
-
-/* img.active{
-  border:4px solid black;
-  border-radius: 10px;
-} */
-
-.emoji-body {
-  padding: 29px 0px 0px 0px;
-}
-
-.emoji-scroll {
-  overflow-y: scroll;
-  height: 150px;
-  padding: 1rem;
-}
-
-.giphy-scroll {
-  overflow-y: scroll;
-  max-height: 150px;
-  padding: 1rem
-}
-
-/* .emojiButton{
-  cursor: pointer;
-  
 } */

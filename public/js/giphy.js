@@ -61,7 +61,7 @@ $(document).ready(function () {
  
         //addes embeded url to message
         $(message).val(`
-        <img src = "${animatePic}">
+        <img class="sent-gif" src = "${animatePic}">
         `)
 
         //adds border to selected gif
