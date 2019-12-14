@@ -181,6 +181,13 @@ main {
   max-width: 100%;
  }
 
+ .collapsible,
+.collapsible-header,
+.collapsible-body {
+  border: none !important;
+  border-radius: 10px !important;
+}
+
 
  /* #output p{
   padding: 14px 0px;
