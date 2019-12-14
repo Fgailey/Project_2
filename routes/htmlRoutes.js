@@ -15,8 +15,9 @@ module.exports = function(app, passport, db) {
          }
         },
          
-      // order:  sequelize.literal('max(name) DESC')
-        // sequelize.fn('max', sequelize.col('id'), 'DESC') 
+      order: [
+        ['id', 'DESC']
+      ],
       
       limit: 100
     }).then(function(dbLittys) {

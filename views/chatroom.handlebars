@@ -4,20 +4,23 @@
       <div class="card-content white-text">
 
         {{!-- instead of handle form, pull user name --}}
-        <div title="Log in to change usernames">User Name: <span id="handle" type="text" placeholder="Handle">{{name}}</span></div>
+        <div title="Log in to change usernames">User Name:
+          <span id="handle" type="text" placeholder="Handle">{{name}}</span>
+        </div>
 
         <div id="chat-window">
           {{!-- NTA color coding for output/feedback; round these corners!! --}}
-            {{#each litty}}
-            {{!-- {{this.createdAt}} --}}
-            <p>
-              <strong>{{this.name}} :</strong> {{{this.message}}} 
-              {{!-- {{#if user.email == uniqueId}} --}}
-              
-            </p>
-            {{/each}}
-          <div class="output-div" id="output"></div></div>
-          <div class="feedback-div center" id="feedback"></div>
+          <div class="feedback-div green center" id="feedback"></div>
+          <div class="output-div blue" id="output"></div>
+          {{#each litty}}
+          {{!-- {{this.createdAt}} --}}
+          <p>
+            <strong>{{this.name}} :</strong> {{{this.message}}}
+            {{!-- {{#if user.email == uniqueId}} --}}
+
+          </p>
+          {{/each}}
+        </div>
         <div class="card-action">
           <input id="message" type="text" placeholder="Message" />
           <button class="waves-effect waves-light btn" id="sendIt">SEND IT</button>
@@ -56,23 +59,24 @@
       </div>
     </div>
   </div>
-</div> 
+</div>
 
 
 
-        {{!-- Gify shit --}}
 
-        {{!-- <div class="col-12">
+{{!-- Gify shit --}}
+
+{{!-- <div class="col-12">
           <form id="topic-form">
             <label id="topic-text" for="topic-input">&darr;SEARCH GIFS&darr;</label>
             <input type="text" id="search-bar">
             <br>
             {{!-- <input id="search" type="submit" value="SEARCH!"> --}}
-            <button id="search"> Search! </button>
-          </form>
-        </div>
-        <br>
-        <div class="row">
-          <div class="col-12">
-            <div id="topics-view"></div>
-          </div>
+<button id="search"> Search! </button>
+</form>
+</div>
+<br>
+<div class="row">
+  <div class="col-12">
+    <div id="topics-view"></div>
+  </div>
