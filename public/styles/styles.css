@@ -24,6 +24,11 @@ body {
   background-color: #252525;
 }
 
+#user-title {
+  margin-top: 8px;
+  margin-bottom: 4px;
+}
+
 .card {
   border-radius: 10px;
 }
@@ -35,6 +40,7 @@ body {
 #color-buttons {
   margin-left:auto;
   max-width: 200px;
+  padding-top: .5%;
 }
 .color-buttons:hover {
   cursor: pointer;
